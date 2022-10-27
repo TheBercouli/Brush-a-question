@@ -1,4 +1,4 @@
-package review.serch;
+package review.search;
 
 import review.sort.BasicSort;
 
