@@ -27,7 +27,4 @@ public class SimpleUtil {
         }
         return flag ? max : min;
     }
-
-
-
 }
