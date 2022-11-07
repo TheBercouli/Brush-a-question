@@ -29,14 +29,15 @@ public class SimpleUtil {
     }
 
     public static void PrintTwoDimensionalArray(int[][] a) {
-        int c = 0;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 System.out.print(a[i][j] + " ");
-                if (++c % a.length == 0) {
-                    System.out.println();
-                }
             }
+            System.out.println();
         }
+    }
+    // 随机数生成
+    public static int getRandomNumber(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
     }
 }
