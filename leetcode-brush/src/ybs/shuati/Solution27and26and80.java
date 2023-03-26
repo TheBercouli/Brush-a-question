@@ -31,7 +31,13 @@ public class Solution27and26and80 {
      * 解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。
      */
     public int removeDuplicates26(int[] nums) {
-        return  0;
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != nums[k]) {
+                nums[++k] = nums[i];
+            }
+        }
+        return k + 1;
     }
 
     /**
@@ -42,7 +48,22 @@ public class Solution27and26and80 {
      * 解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 。 不需要考虑数组中超出新长度后面的元素。
      */
     public int removeDuplicates80(int[] nums) {
-        return  0;
+        return process(nums, 2);
     }
+
+    /**
+     * 这里可以定义为：快慢指针，或者 我称之为 双指针之 规则指针和遍历指针
+     * 快指针为遍历指针，慢指针为规则指针
+     * 慢指针所行进的路 就是已经按照规则完成的结果，慢指针存放的数据就是规则数据
+     * 对于26和80两道题来说，前提是有序序列。
+     */
+    int process(int[] nums, int k) {
+        int u = 0;
+        for (int x : nums) {
+            if (u < k || nums[u - k] != x) nums[u++] = x;
+        }
+        return u;
+    }
+
 
 }
