@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 双索引技术-滑动窗口
  */
-public class Solution209and3and438and76 {
+public class Solution209and3and438and76and219and220 {
 
     /**
      * 给定一个含有n个正整数的数组和一个正整数 target 。
@@ -175,5 +175,6 @@ public class Solution209and3and438and76 {
         String b = "ABC";
         System.out.println(minWindow76v1(a, b));
     }
+    //219 220
 
 }

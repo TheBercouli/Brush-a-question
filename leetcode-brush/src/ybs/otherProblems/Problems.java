@@ -293,7 +293,46 @@ public class Problems {
     }
 
 
-//16
+    /**
+     * 16:最接近的三数之和
+     * 给你一个长度为 n 的整数数组nums和 一个目标值target。请你从 nums 中选出三个整数，使它们的和与target 最接近。
+     * 返回这三个数的和。
+     * 假定每组输入只存在恰好一个解。
+     *
+     * 输入：nums = [-1,2,1,-4], target = 1   -4 -1 1 2
+     * 输出：2
+     * 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+
+     */
+    public int threeSumClosest16v1(int[] nums, int target) {
+        Arrays.sort(nums);
+        int resSum = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
+            int l = i + 1;
+            int h = nums.length - 1;
+            while (l < h) {
+                int sum = nums[i] + nums[l] + nums[h];
+                if (sum == target)  // 一般情况这如果不是最接近 这里已经拿到了全部数据
+                    return sum;
+                // 获取最优解
+                if (Math.abs(sum - target) < Math.abs(resSum - target)) {
+                    resSum = sum;
+                }
+                // 和15一样的去重操作，然后移动对撞指针，移动方式也略有不同
+                if (sum > target) {
+                    while (l < h && nums[h] == nums[h - 1]) h--;
+                    h--;
+                }else {
+                    while (l < h && nums[l] == nums[l + 1]) l++;
+                    l++;
+                }
+            }
+        }
+        return resSum;
+
+    }
 
     /**
      * 49：字母异位词分组
@@ -315,6 +354,8 @@ public class Problems {
         }
         return new ArrayList<>(map.values());
     }
+
+    //347前K个出现频率
 
 
 
