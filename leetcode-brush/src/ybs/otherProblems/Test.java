@@ -6,5 +6,5 @@ package ybs.otherProblems;
  */
 public class Test {
 
-    qq
+
 }
